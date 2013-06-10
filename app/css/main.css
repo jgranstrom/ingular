@@ -1,0 +1,198 @@
+/* Same as Angular.js uses for hiding prior to compiling,
+ * include in css since angular is loaded in the body section
+ * which means flickering may still occur
+ */
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none;
+}
+
+body {
+  background-color: #f5f5f5;
+  margin: 20px;
+}
+
+.instaimg-enter {
+  -webkit-transition:0.3s ease-in-out all;
+  -ms-transition:0.3s ease-in-out all;
+  -moz-transition:0.3s ease-in-out all;
+  -o-transition:0.3s ease-in-out all;
+  transition:0.3s ease-in-out all; /* future proof */
+
+  opacity: 0;
+  width: 0px;
+  height: 150px;
+}
+
+.instaimg-enter.instaimg-enter-active {
+  opacity: 1;
+  width: 150px;
+}
+
+.images div {
+  height: 150px;
+  position: relative;
+}
+
+.images img {
+  width: 150px;
+  height: 150px;
+}
+
+.imgOverlay {
+  width: 150px;
+  height: 20px !important;
+  line-height: 20px !important;
+  position: absolute !important;
+  padding: 3px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.imgOverlay a {
+  color: #DDDDDD;
+}
+
+.imgOverlay img {
+  height: 20px;
+  width: 20px;
+  margin-right: 3px;
+}
+
+.imgOverlay.bottom {
+  bottom: 0;
+}
+
+.imgOverlay.top {
+  top: 0;
+}
+
+div.images {
+  line-height: 0;
+}
+img {
+  margin: 0;
+  padding: 0;
+}
+
+div.box {
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+
+div.box, div.boxfree {
+  padding: 15px;
+}
+
+div.vertical {
+  margin-left: 0 !important;
+}
+
+.nomarg {
+  margin: 0;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.relative {
+  position: relative;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+form {
+  margin: 0 !important;
+}
+
+fieldset label:last-child {
+  margin-bottom: 15px;
+}
+
+input {
+  margin-bottom: 0 !important;
+}
+
+.fine {
+  color: #777777;
+}
+
+.disabled {
+  color: #CCCCCC;
+}
+
+h1.head {
+  margin-bottom: 20px;
+}
+
+#liveChart {
+  height: 100px;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fill {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.overlay {
+  margin-top: 25px;
+}
+
+.limitWidth {
+  min-width: 200px;
+}
+
+.airybottom {
+  margin-bottom: 20px;
+}
+
+.streamControl {
+  right: 20px;
+  top: 20px;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+
+.fade-show,.fade-hide {
+  -webkit-transition: 0.1s ease-in-out opacity;
+  -ms-transition: 0.1s ease-in-out opacity;
+  -moz-transition: 0.1s ease-in-out opacity;
+  -o-transition: 0.1s ease-in-out opacity;
+  transition: 0.1s ease-in-out opacity;
+}
+.fade-show{
+  opacity:0;
+}
+.fade-hide{
+  opacity:1;
+}
+.fade-show.fade-show-active {
+  opacity: 1;
+}
+.fade-hide.fade-hide-active{
+  opacity:0;
+}

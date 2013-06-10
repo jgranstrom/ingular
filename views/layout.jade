@@ -1,0 +1,44 @@
+!!! 5
+html(ng-app="app")
+  head
+    title Ingular
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='/css/bootstrap.css', rel='stylesheet')
+    link(href='/css/main.css', rel='stylesheet')
+    script.
+      // Single global object for providing configuration provided from server
+      var ingular = ingular || {};
+      ingular.appHost = '#{appHost}';
+  body
+    div.container-fluid
+      block content
+
+    // Socket.io static
+    script(src='/socket.io/socket.io.js')
+
+    // Lib
+    script(src='/lib/smoothie/smoothie.js')
+    script(src='/lib/jquery/jquery.js')
+    script(src='/lib/angular/angular.js')
+
+    // Services
+    script(src='/js/services/socketService.js')
+    script(src='/js/services/tagService.js')
+    script(src='/js/services/streamService.js')
+    script(src='/js/services.js')
+
+    // Controllers
+    script(src='/js/controllers/ImagesCtrl.js')
+    script(src='/js/controllers/TagsCtrl.js')
+    script(src='/js/controllers/StreamCtrl.js')
+    script(src='/js/controllers.js')
+
+    // Filters
+    script(src='/js/filters/tagFilter.js')
+    script(src='/js/filters.js')
+
+    // Directives
+    script(src='/js/directives/chart.js')
+    script(src='/js/directives.js')
+
+    script(src='/js/app.js')

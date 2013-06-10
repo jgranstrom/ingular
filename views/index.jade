@@ -1,0 +1,47 @@
+extends layout
+block content
+  div.row-fluid
+    div.span12.boxfree
+      h1.head Ingular
+  div.row-fluid
+    .span3.limitWidth
+      .box.span12(ng-controller="TagsCtrl")
+        form.span12(name="tagForm", ng-submit="addTag(tagToAdd)")
+          fieldset
+            div(ng-cloak)
+              label.checkbox(ng-repeat="tag in tagEntries")
+                input(type="checkbox", ng-model="tag.enabled")
+                span(ng-class="{'disabled':!tag.enabled}") {{ tag.tag }}
+                a(ng-click="removeTag(tag)")
+                  i.right.icon-minus
+            .controls-row
+              input.span9(type="text", placeholder="add tag", ng-model="tagToAdd", required)
+              button.btn.span3(type="submit")
+                i.icon-plus
+
+      .boxfree.vertical.relative.span12.airybottom(ng-controller="StreamCtrl")
+        canvas.span12(id="liveChart", chart, time-series="timeSeries")
+        .absolute.fill
+          .overlay
+            center
+              h3.nomarg(ng-bind="service.isPaused ? 'stream paused' : (service.ipsToDisplay | number:1) + ' images per second'") Loading application..
+              i.icon-off(ng-cloak, ng-show=" tagEntries.length <= 0")
+              a(ng-hide="tagEntries.length <= 0", href="#", ng-click="service.togglePause()")
+                i(class="{{ service.isPaused ? 'icon-play' : 'icon-pause' }}")
+              h5.nomarg(ng-bind="service.imagesSeen + ' images seen'")
+
+    div.span9.limitWidth
+      .box(ng-controller="ImagesCtrl")
+        h5(ng-show="tagEntries.length <= 0") Nothing to show yet, add some tag(s) and wait for things to go down
+        .images(ng-cloak)
+          .inline-block(ng-repeat="img in streamService.images | tagFilter", ng-animate="{ enter: 'instaimg-enter' }",
+          ng-mouseenter="mouseenter(img)", ng-mouseleave="mouseleave(img)")
+            .imgOverlay.bottom(ng-show="img.hover", ng-animate="{show: 'fade-show', hide:'fade-hide'}")
+              a(href="{{ 'http://instagram.com/' + img.user.username}}", target="_blank")
+                img(ng-src="{{ img.user.pic }}")
+                span {{ img.user.username }}
+            a(href="{{ img.link }}", target="_blank")
+              img(ng-src="{{ img.image.url }}")
+      .boxfree.vertical.span12
+        span.left.fine This product uses the Instagram API but is not endorsed or certified by Instagram.
+        span.right.fine example by John Granström

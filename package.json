@@ -1,0 +1,14 @@
+{
+  "name": "ingular",
+  "description": "A real-time example app using the instagram api",
+  "author": "John Granström",
+  "version": "0.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~3.2.6",
+    "jade": "*",
+    "instagram-node-lib": "*",
+    "socket.io": "*",
+    "underscore": "*"
+  }
+}
