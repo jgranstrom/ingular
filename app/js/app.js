@@ -8,6 +8,7 @@
     'app.filters',
     'app.directives',
     'app.services',
-    'app.controllers'
+    'app.controllers',
+    'app.util'
   ]);
 }());

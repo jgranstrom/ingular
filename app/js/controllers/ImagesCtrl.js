@@ -2,11 +2,12 @@
   'use strict';
 
   angular.module('app.controllers.ImagesCtrl', [
-      'app.services.streamService',
-      'app.services.tagService'
+      'app.services.imagesService',
+      'app.services.tagService',
+      'app.util'
     ])
-    .controller('ImagesCtrl', function ($scope, streamService, tagService) {
-      $scope.streamService = streamService;
+    .controller('ImagesCtrl', function ($scope, imagesService, tagService, util) {
+      util.attach($scope, imagesService, 'images');
       $scope.tagEntries = tagService.tags;
 
       $scope.mouseenter = function(img) {

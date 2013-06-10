@@ -24,17 +24,17 @@ block content
         .absolute.fill
           .overlay
             center
-              h3.nomarg(ng-bind="service.isPaused ? 'stream paused' : (service.ipsToDisplay | number:1) + ' images per second'") Loading application..
+              h3.nomarg(ng-bind="isPaused ? 'stream paused' : (ipsToDisplay | number:1) + ' images per second'") Loading application..
               i.icon-off(ng-cloak, ng-show=" tagEntries.length <= 0")
-              a(ng-hide="tagEntries.length <= 0", href="#", ng-click="service.togglePause()")
-                i(class="{{ service.isPaused ? 'icon-play' : 'icon-pause' }}")
-              h5.nomarg(ng-bind="service.imagesSeen + ' images seen'")
+              a(ng-hide="tagEntries.length <= 0", href="#", ng-click="togglePause()")
+                i(class="{{ isPaused ? 'icon-play' : 'icon-pause' }}")
+              h5.nomarg(ng-bind="imagesSeen + ' images seen'")
 
     div.span9.limitWidth
       .box(ng-controller="ImagesCtrl")
         h5(ng-show="tagEntries.length <= 0") Nothing to show yet, add some tag(s) and wait for things to go down
         .images(ng-cloak)
-          .inline-block(ng-repeat="img in streamService.images | tagFilter", ng-animate="{ enter: 'instaimg-enter' }",
+          .inline-block(ng-repeat="img in images | tagFilter", ng-animate="{ enter: 'instaimg-enter' }",
           ng-mouseenter="mouseenter(img)", ng-mouseleave="mouseleave(img)")
             .imgOverlay.bottom(ng-show="img.hover", ng-animate="{show: 'fade-show', hide:'fade-hide'}")
               a(href="{{ 'http://instagram.com/' + img.user.username}}", target="_blank")

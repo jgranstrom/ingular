@@ -7,6 +7,8 @@
   angular.module('app.services', [
     'app.services.socketService',
     'app.services.tagService',
-    'app.services.streamService'
+    'app.services.controlService',
+    'app.services.statsService',
+    'app.services.imagesService'
   ]);
 }());
